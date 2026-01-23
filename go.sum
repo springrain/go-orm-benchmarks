@@ -68,6 +68,8 @@ gitee.com/chunanyong/zorm v1.8.2-0.20260123042035-86d562dcb2e8 h1:+0ic2Y9F792V6R
 gitee.com/chunanyong/zorm v1.8.2-0.20260123042035-86d562dcb2e8/go.mod h1:Sk+vofBqQXgNrDTe+nWhV6iMXhiBObFHdCo1MfvAdi8=
 gitee.com/chunanyong/zorm v1.8.2-0.20260123144239-825796127ae7 h1:6A1BTcOgyla77ot2yqdbtrJljNfZCfYUCGuUQx2gG10=
 gitee.com/chunanyong/zorm v1.8.2-0.20260123144239-825796127ae7/go.mod h1:Sk+vofBqQXgNrDTe+nWhV6iMXhiBObFHdCo1MfvAdi8=
+gitee.com/chunanyong/zorm v1.8.2-0.20260123224658-31111e86efc6 h1:OfOzSPcDkuu6+LeSvTtu1oMhwkM5ORsRq4G4hbsBW2o=
+gitee.com/chunanyong/zorm v1.8.2-0.20260123224658-31111e86efc6/go.mod h1:Sk+vofBqQXgNrDTe+nWhV6iMXhiBObFHdCo1MfvAdi8=
 github.com/AlekSi/pointer v1.1.0 h1:SSDMPcXD9jSl8FPy9cRzoRaMJtm9g9ggGTxecRUbQoI=
 github.com/AlekSi/pointer v1.1.0/go.mod h1:y7BvfRI3wXPWKXEBhU71nbnIEEZX0QTSB2Bj48UJIZE=
 github.com/Azure/azure-sdk-for-go/sdk/azcore v0.19.0/go.mod h1:h6H6c8enJmmocHUbLiiGY6sx7f9i+X3m1CHdd5c6Rdw=
