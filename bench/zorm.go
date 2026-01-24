@@ -42,7 +42,7 @@ func (zorm *Zorm) Init() error {
 		MaxIdleConns:       helper.OrmMaxIdle,
 		SlowSQLMillis:      -1,
 		DisableTransaction: true,
-		//InsertSQLNoColumn:  true,
+		InsertSQLNoColumn:  true,
 	}
 	_, err := zormdb.NewDBDao(&dbDaoConfig)
 	if err != nil {
