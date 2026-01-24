@@ -2,8 +2,9 @@ package bench
 
 import (
 	"context"
-	"github.com/efectn/go-orm-benchmarks/helper"
 	"testing"
+
+	"github.com/efectn/go-orm-benchmarks/helper"
 
 	zormdb "gitee.com/chunanyong/zorm"
 	_ "github.com/lib/pq"
@@ -41,6 +42,7 @@ func (zorm *Zorm) Init() error {
 		MaxIdleConns:       helper.OrmMaxIdle,
 		SlowSQLMillis:      -1,
 		DisableTransaction: true,
+		InsertSQLNoColumn:  true,
 	}
 	_, err := zormdb.NewDBDao(&dbDaoConfig)
 	if err != nil {
