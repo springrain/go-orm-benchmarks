@@ -64,6 +64,8 @@ gitea.com/xorm/sqlfiddle v0.0.0-20180821085327-62ce714f951a h1:lSA0F4e9A2NcQSqGq
 gitea.com/xorm/sqlfiddle v0.0.0-20180821085327-62ce714f951a/go.mod h1:EXuID2Zs0pAQhH8yz+DNjUbjppKQzKFAn28TMYPB6IU=
 gitee.com/chunanyong/zorm v1.8.2-0.20260127032123-c78b55f7d3b2 h1:NFAX6A62JAvcsjnAFoDyDGni27Ol6VBDLATxjeyYzW4=
 gitee.com/chunanyong/zorm v1.8.2-0.20260127032123-c78b55f7d3b2/go.mod h1:Sk+vofBqQXgNrDTe+nWhV6iMXhiBObFHdCo1MfvAdi8=
+gitee.com/chunanyong/zorm v1.8.2-0.20260128013354-d34fc6bceeac h1:Wi7sb1t/beah4uq84nhlCa9aDqPIG+YlzsRbII4TiRU=
+gitee.com/chunanyong/zorm v1.8.2-0.20260128013354-d34fc6bceeac/go.mod h1:Sk+vofBqQXgNrDTe+nWhV6iMXhiBObFHdCo1MfvAdi8=
 github.com/AlekSi/pointer v1.1.0 h1:SSDMPcXD9jSl8FPy9cRzoRaMJtm9g9ggGTxecRUbQoI=
 github.com/AlekSi/pointer v1.1.0/go.mod h1:y7BvfRI3wXPWKXEBhU71nbnIEEZX0QTSB2Bj48UJIZE=
 github.com/Azure/azure-sdk-for-go/sdk/azcore v0.19.0/go.mod h1:h6H6c8enJmmocHUbLiiGY6sx7f9i+X3m1CHdd5c6Rdw=
