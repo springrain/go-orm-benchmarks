@@ -1,10 +1,14 @@
 package bench
 
 import (
+	"testing"
+
 	"github.com/efectn/go-orm-benchmarks/helper"
+
+	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/stdlib"
 	db "github.com/upper/db/v4"
 	"github.com/upper/db/v4/adapter/postgresql"
-	"testing"
 )
 
 type Upper struct {
@@ -21,25 +25,43 @@ func (upper *Upper) Name() string {
 }
 
 func (upper *Upper) Init() error {
-	var err error
+	// upper/db's postgresql adapter injects "default_query_exec_mode=cache_describe"
+	// into the DSN (see adapter/postgresql/connection_pgx.go). pgx v4 does not strip
+	// that parameter and sends it to the server during the startup handshake, which
+	// fails on PostgreSQL < 17 with
+	//   FATAL: unrecognized configuration parameter "default_query_exec_mode" (SQLSTATE 42704).
+	// gobuffalo/pop pulls in github.com/jackc/pgx/v4/stdlib, whose init() registers the
+	// "pgx" database/sql driver name first, so upper/db ends up using the v4 driver.
+	// To avoid the v4/v5 driver-name conflict, open the connection explicitly through
+	// pgx/v5/stdlib (whose ParseConfig strips default_query_exec_mode) and hand the
+	// resulting *sql.DB to upper/db via postgresql.New.
 	source := helper.SplitSource()
 
-	upper.conn, err = postgresql.Open(postgresql.ConnectionURL{
+	connURL := postgresql.ConnectionURL{
 		Host:     source["host"] + ":5432",
 		User:     source["user"],
 		Password: source["password"],
 		Database: source["dbname"],
-	})
+	}
+
+	// pgx.ParseConfig strips default_query_exec_mode from RuntimeParams, so it is
+	// never sent to the server.
+	cfg, err := pgx.ParseConfig(connURL.String())
+	if err != nil {
+		return err
+	}
+
+	sqlDB := stdlib.OpenDB(*cfg)
+	sqlDB.SetMaxOpenConns(helper.OrmMaxConn)
+	sqlDB.SetMaxIdleConns(helper.OrmMaxIdle)
+
+	upper.conn, err = postgresql.New(sqlDB)
 	if err != nil {
 		return err
 	}
 
 	// Disable logger
 	db.LC().SetLogger(nil)
-
-	if err := upper.conn.Ping(); err != nil {
-		return err
-	}
 
 	return nil
 }
