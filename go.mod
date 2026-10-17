@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	entgo.io/ent v0.14.6
-	gitee.com/chunanyong/zorm v1.8.6-0.20260730074206-f36e4145526e
+	gitee.com/chunanyong/zorm v1.8.6-0.20261017114359-22d65556bd49
 	github.com/astaxie/beego v1.12.3
 	github.com/bokwoon95/sq v0.5.1
 	github.com/friendsofgo/errors v0.9.2
